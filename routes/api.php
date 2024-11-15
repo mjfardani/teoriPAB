@@ -31,3 +31,12 @@ Route::middleware(['auth:sanctum', 'admin'])->post(
     [UserController::class, 'logout']
 );
 Route::post('/login', [UserController::class, 'login']);
+
+Route::middleware(['auth:sanctum', 'admin'])->post(
+    '/user/token',
+    [UserController::class, 'terminal_token']
+);
+Route::middleware(['auth:sanctum', 'admin'])->get(
+    '/user/list',
+    [UserController::class, 'list']
+);
